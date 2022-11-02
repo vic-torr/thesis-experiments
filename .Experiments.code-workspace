@@ -1,0 +1,38 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../home/vektor/partitions/data/UFMG/Thesis/Experiments"
+		}
+	],
+	"settings": {
+		"sqltools.connections": [
+			{
+				"mysqlOptions": {
+					"authProtocol": "default"
+				},
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 3306,
+				"driver": "MariaDB",
+				"username": "vektor",
+				"name": " Localhost via UNIX socket",
+				"database": "futebol",
+				"password": ""
+			},
+			{
+				"mysqlOptions": {
+					"authProtocol": "default"
+				},
+				"previewLimit": 50,
+				"server": "localhost",
+				"port": 3306,
+				"driver": "MariaDB",
+				"username": "vektor",
+				"database": "futebol",
+				"name": "asdf",
+				"socketPath": "/run/mysqld/mysqld.sock",
+				"password": "dadin"
+			}
+		]
+	}
+}
