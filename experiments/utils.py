@@ -142,7 +142,16 @@ def save_checkpoint(config, epoch, model, max_accuracy, optimizer, lr_scheduler,
     torch.save(save_state, save_path)
     logger.info(f"{save_path} saved !!!")
 
-def model_pretreined():
-    load_pretrained(config, model_without_ddp, logger)
-    acc1, acc5, loss = validate(config, data_loader_val, model)
-    logger.info(f"Accuracy of the network on the {len(dataset_val)} test images: {acc1:.1f}%")
+    
+
+def auto_resume_helper(output_dir):
+    checkpoints = os.listdir(output_dir)
+    checkpoints = [ckpt for ckpt in checkpoints if ckpt.endswith('pth')]
+    print(f"All checkpoints founded in {output_dir}: {checkpoints}")
+    if len(checkpoints) > 0:
+        latest_checkpoint = max([os.path.join(output_dir, d) for d in checkpoints], key=os.path.getmtime)
+        print(f"The latest checkpoint founded: {latest_checkpoint}")
+        resume_file = latest_checkpoint
+    else:
+        resume_file = None
+    return resume_file
